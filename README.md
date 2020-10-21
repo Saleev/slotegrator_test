@@ -1,5 +1,5 @@
 ## Install Laravel ver.7
-`composer create-project --prefer-dist laravel/laravel:^7.0 blog`
+`composer create-project --prefer-dist laravel/laravel:^7.0 slotegrator`
 
 ## Preparing for launch
 - Set database connection settings in the .env file 
