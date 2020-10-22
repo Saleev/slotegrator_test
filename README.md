@@ -20,4 +20,4 @@
 
 ## Default admin
 - Login: admin@game.com
--Password: 12345678
+- Password: 12345678
