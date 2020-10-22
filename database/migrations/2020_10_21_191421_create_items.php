@@ -24,6 +24,15 @@ class CreateItems extends Migration
         });
 
         DB::statement("ALTER TABLE `$tablename` comment 'Список призовых предметов'");
+
+        foreach(["Тапки", "Очки", "Шарик", "Ручка"] as $name) {
+            DB::table($tablename)->insert([
+                'name' => $name,
+                'bonus_rate' => rand(10, 50),
+                'money_rate' => rand(5, 30),
+                'count' => rand(1, 10)
+            ]);
+        }
     }
 
     /**

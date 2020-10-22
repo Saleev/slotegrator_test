@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fc0ec29-6a9c-4fb0-bddd-5b6969e6d509" name="Default Changelist" comment="" />
+    <list default="true" id="5fc0ec29-6a9c-4fb0-bddd-5b6969e6d509" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_191147_create_limits.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_191147_create_limits.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_191421_create_items.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_191421_create_items.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_192621_create_prizes.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_192621_create_prizes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -130,6 +147,12 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\test\slotegrator\app" />
+      <recent name="D:\Projects\test\slotegrator\app\Model" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -145,10 +168,42 @@
       <option name="presentableId" value="Default" />
       <updated>1603305876304</updated>
       <workItem from="1603305877346" duration="6385000" />
+      <workItem from="1603313166798" duration="851000" />
+      <workItem from="1603342084130" duration="20834000" />
     </task>
+    <task id="LOCAL-00001" summary="README.md edit">
+      <created>1603313190998</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603313190998</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="README.md edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md edit" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="598" y="170" key="CommitChangelistDialog2" timestamp="1603313190499">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="598" y="170" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1603313190499" />
+    <state x="552" y="304" key="Vcs.Push.Dialog.v2" timestamp="1603313193895">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="552" y="304" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1603313193895" />
+    <state x="669" y="302" width="581" height="556" key="find.popup" timestamp="1603367505666">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="669" y="302" width="581" height="556" key="find.popup/0.0.1920.1160@0.0.1920.1160" timestamp="1603367505666" />
+    <state x="623" y="255" width="672" height="678" key="search.everywhere.popup" timestamp="1603358781639">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="623" y="255" width="672" height="678" key="search.everywhere.popup/0.0.1920.1160@0.0.1920.1160" timestamp="1603358781639" />
   </component>
 </project>

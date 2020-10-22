@@ -21,6 +21,14 @@ class CreateLimits extends Migration
         });
 
         DB::statement("ALTER TABLE `$tablename` comment 'Установленные лимиты призов'");
+
+        DB::table($tablename)->insert(
+            array(
+                'bonus' => 100,
+                'money' => 1000,
+                'items' => 5
+            )
+        );
     }
 
     /**

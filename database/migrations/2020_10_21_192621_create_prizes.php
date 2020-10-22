@@ -22,6 +22,7 @@ class CreatePrizes extends Migration
             $table->integer('bonus')->default(0)->comment('Кол-во полученных бонусов');
             $table->float('money', 8, 2)->default(0)->comment('Сумма выигранных денег');
             $table->integer('id_item')->default(0);
+            $table->integer('onsend')->default(0)->comment('Статус отправки 0 - не отправлен 1 отправлен');
             $table->timestamps();
         });
 

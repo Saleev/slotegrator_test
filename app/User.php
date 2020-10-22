@@ -36,4 +36,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function itemSends()
+    {
+        return $this->hasMany('App\Model\itemSend', 'id_user');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function moneySends()
+    {
+        return $this->hasMany('App\Model\moneysend', 'id_user');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function prizes()
+    {
+        return $this->hasMany('App\Model\prizes', 'id_user');
+    }
 }
