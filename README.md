@@ -13,7 +13,7 @@
 
 ## Or Download project from github
 - Create file .env
-- Copy text from .end.example to file .env
+- Copy text from .env.example to file .env
 - Set database connection settings in the .env file
 - $ `php artisan migrate`
 - $ `php artisan serve`

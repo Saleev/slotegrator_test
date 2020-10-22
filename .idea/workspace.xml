@@ -158,7 +158,7 @@
       <workItem from="1603305877346" duration="6385000" />
       <workItem from="1603313166798" duration="851000" />
       <workItem from="1603342084130" duration="20834000" />
-      <workItem from="1603375582751" duration="126000" />
+      <workItem from="1603375582751" duration="191000" />
     </task>
     <task id="LOCAL-00001" summary="README.md edit">
       <created>1603313190998</created>
@@ -174,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603375672207</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Init Commit">
+      <created>1603375714924</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603375714924</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,14 +193,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="Init Commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="598" y="170" key="CommitChangelistDialog2" timestamp="1603375670340">
+    <state x="598" y="170" key="CommitChangelistDialog2" timestamp="1603375714450">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="598" y="170" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1603375670340" />
-    <state x="552" y="304" key="Vcs.Push.Dialog.v2" timestamp="1603375675072">
+    <state x="598" y="170" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1603375714450" />
+    <state x="552" y="304" key="Vcs.Push.Dialog.v2" timestamp="1603375716223">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="552" y="304" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1603375675072" />
+    <state x="552" y="304" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1603375716223" />
     <state x="669" y="302" width="581" height="556" key="find.popup" timestamp="1603367505666">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
