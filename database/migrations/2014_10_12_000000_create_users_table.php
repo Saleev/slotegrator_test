@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->integer('isadmin')->default(0)->comment('Является администратором');
+            $table->string('card_num')->nullable()->comment('Номер карточки');
+            $table->text('address')->nullable()->comment('Адрес доставки');
         });
 
         DB::table('users')->insert(

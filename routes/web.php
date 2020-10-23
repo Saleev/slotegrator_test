@@ -23,3 +23,6 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/startgame', 'HomeController@StartGame');
 Route::post('/exchange', 'HomeController@Exchange');
+
+Route::post('/card_data', 'HomeController@card_data');
+Route::post('/delivery', 'HomeController@delivery');

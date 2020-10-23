@@ -11,7 +11,34 @@
                         <div class="card-header">Кол-во попыток выйграть {{ $result['attempt'] }} раз(а).</div>
                         <div class="card-body" id="card-body">
                             @if($message)
-                                <center><h1>{!! $message !!}</h1></center>
+                                <h3>{!! $message !!}</h3>
+                                <div class="bg-light">
+                                    <center>
+                                        <label>Для получения денежных средств пожалуйста укажите Ваш данные</label>
+                                    </center>
+                                    <form method="post" action="{{ asset('card_data') }}" style="padding: 15px">
+                                        @csrf
+                                        <label>№ карточки</label>
+                                        <input type="text" class="form-control" name="card_num" id="card_num" required>
+                                        <br>
+                                        <button type="submit" class="btn btn-primary btn-block">Отправить</button>
+
+                                    </form>
+                                </div>
+                            <hr>
+                                <div class="bg-light">
+                                    <center>
+                                        <label>Для получения предметов пожалуйста укажите Ваш адрес доставки</label>
+                                    </center>
+                                    <form method="post" action="{{ asset('delivery') }}" style="padding: 15px">
+                                        @csrf
+                                        <label>Адресс</label>
+                                        <textarea class="form-control" name="address"></textarea>
+                                        <br>
+                                        <button type="submit" class="btn btn-primary btn-block">Отправить</button>
+                                    </form>
+                                </div>
+
                             @else
                                 <center>
                                     <span class="btn btn-primary btn" id="start">Начать</span>
@@ -25,7 +52,10 @@
                 <div class="card">
                     <div class="card-header">Призовая статистика</div>
                     <div class="card-body">
-                        <span class="badge badge-primary">Общее кол-во</span> <span class="badge badge-success float-right">Отправлено/Перечислено</span>
+                        <div style="text-align: right">
+                            <span class="badge badge-success">Отправлено/Перечислено</span>
+                            <span class="badge badge-primary">Общее кол-во</span>
+                        </div>
                         <hr>
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -33,23 +63,23 @@
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Деньги
-                                <span class="badge badge-primary badge-pill">{{ $result['money'] }}</span>
                                 <span class="badge badge-success badge-pill">{{ $result['money_send'] }}</span>
+                                <span class="badge badge-primary badge-pill">{{ $result['money'] }}</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Призы
-                                <span class="badge badge-primary badge-pill">{{ $result['item'] }}</span>
                                 <span class="badge badge-success badge-pill">{{ $result['item_send'] }}</span>
+                                <span class="badge badge-primary badge-pill">{{ $result['item'] }}</span>
                             </li>
                         </ul>
                         <hr>
                         <label>
                             Вы можете обменять призы на
                         </label><br>
-                        <center>
+                        <div style="text-align: right">
                             <span class="badge badge-primary">Бонусы</span>
                             <span class="badge badge-success">Деньги</span>
-                        </center>
+                        </div>
 
                         <hr>
                         <ul class="list-group">
@@ -76,6 +106,8 @@
 
 @else
     @section('js')
+        <script src="{{ asset('js/jquery.maskedinput.min.js') }}"></script>
+
         <script>
             $.ajaxSetup({
                 global: true,
@@ -109,6 +141,8 @@
                     });
                 }
             });
+
+            $('#card_num').mask('9999-9999-9999-9999');
         </script>
     @endsection
 @endguest

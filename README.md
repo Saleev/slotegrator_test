@@ -15,8 +15,14 @@
 - Create file .env
 - Copy text from .env.example to file .env
 - Set database connection settings in the .env file
+- $ `composer require`
 - $ `php artisan migrate`
 - $ `php artisan serve`
+
+## Queue
+- .env file set `QUEUE_CONNECTION=database`
+- Start queue $ `php artisan queue:work`
+- Console `send` command  $ `php artisan send_money`
 
 ## Default admin
 - Login: admin@game.com

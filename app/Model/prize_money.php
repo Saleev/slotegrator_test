@@ -22,6 +22,8 @@ class prize_money extends Model
      */
     protected $table = 'prize_money';
 
+    public $primaryKey = 'id';
+
     /**
      * @var array
      */

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fc0ec29-6a9c-4fb0-bddd-5b6969e6d509" name="Default Changelist" comment="Init Commit">
+    <list default="true" id="5fc0ec29-6a9c-4fb0-bddd-5b6969e6d509" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Helpers/OnMoneySend.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jquery.maskedinput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jquery.maskedinput.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/prize_money.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/prize_money.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_191421_create_items.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_192621_create_prizes.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_192621_create_prizes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_193528_create_item_send.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_23_193528_create_item_send.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -144,6 +147,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\test\slotegrator\public\js" />
       <recent name="D:\Projects\test\slotegrator\app" />
       <recent name="D:\Projects\test\slotegrator\app\Model" />
     </key>
@@ -169,7 +173,8 @@
       <workItem from="1603385440919" duration="1736000" />
       <workItem from="1603419410956" duration="7206000" />
       <workItem from="1603443421317" duration="818000" />
-      <workItem from="1603461785863" duration="6333000" />
+      <workItem from="1603461785863" duration="16482000" />
+      <workItem from="1603478926207" duration="1582000" />
     </task>
     <task id="LOCAL-00001" summary="README.md edit">
       <created>1603313190998</created>
@@ -199,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603375781214</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Init Commit">
+      <created>1603468254309</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603468254309</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,14 +223,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="Init Commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="598" y="170" key="CommitChangelistDialog2" timestamp="1603461915492">
+    <state x="690" y="337" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603477086181">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="598" y="170" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1603461915492" />
-    <state x="552" y="304" key="Vcs.Push.Dialog.v2" timestamp="1603375782936">
+    <state x="690" y="337" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1603477086181" />
+    <state x="598" y="170" key="CommitChangelistDialog2" timestamp="1603468252725">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="552" y="304" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1603375782936" />
+    <state x="598" y="170" key="CommitChangelistDialog2/0.0.1920.1160@0.0.1920.1160" timestamp="1603468252725" />
+    <state x="755" y="324" key="NewPhpClassDialog" timestamp="1603477065663">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="755" y="324" key="NewPhpClassDialog/0.0.1920.1160@0.0.1920.1160" timestamp="1603477065663" />
+    <state x="552" y="304" key="Vcs.Push.Dialog.v2" timestamp="1603468260840">
+      <screen x="0" y="0" width="1920" height="1160" />
+    </state>
+    <state x="552" y="304" key="Vcs.Push.Dialog.v2/0.0.1920.1160@0.0.1920.1160" timestamp="1603468260840" />
     <state x="669" y="302" width="581" height="556" key="find.popup" timestamp="1603367505666">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>

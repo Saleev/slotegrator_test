@@ -25,6 +25,9 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
+     */
     public function index()
     {
         $user = User::where("id", Auth::id())->first();
@@ -46,7 +49,14 @@ class HomeController extends Controller
             "user_items" => $user_items,
         ];
 
-        $cnt = $user->prizes->where(DB::raw('DATE(datetime_set)'), 'DATE(NOW())')->count();
+        /**
+         *  Установка ограничения на нажатие кнопки
+         *  По умолчанию 1 клик в 1 день
+         *  Можно убрать данное ограничение или увеличить
+         *  $cnt = 0;
+         */
+        $cnt = prizes::where('id_user', $user->id)->where(DB::raw('DATE(datetime_set)'), DB::raw('DATE(NOW())'))->count();
+        //$cnt = 0;
 
         $all['attempt'] = ($cnt > 0) ? 0 : 1;
 
@@ -57,6 +67,9 @@ class HomeController extends Controller
         return $this->result($all, 'welcome', false, 'У Вас больше нету попыток!<br /> Зайдите на сайт через 24 часа');
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
+     */
     public function StartGame()
     {
         $columns = ["bonus", "money", "item"];
@@ -65,6 +78,13 @@ class HomeController extends Controller
         return $this->result($res);
     }
 
+    /**
+     * @param $array
+     * @param string $view
+     * @param bool $return
+     * @param string $message
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
+     */
     private function result($array, $view = '', $return = true, $message = '')
     {
         $res_array = [
@@ -80,6 +100,9 @@ class HomeController extends Controller
         }
     }
 
+    /**
+     * @return string
+     */
     private function bonus()
     {
         $c = limits::first();
@@ -97,6 +120,9 @@ class HomeController extends Controller
         return "Поздравляем Вы выйграли $bonus бонусов!";
     }
 
+    /**
+     * @return string
+     */
     private function money()
     {
         $c = limits::first();
@@ -114,6 +140,9 @@ class HomeController extends Controller
         return "Поздравляем Вы выйграли $money рублей!";
     }
 
+    /**
+     * @return string
+     */
     private function item()
     {
         //Проверка на существование записей в таблице предметов
@@ -143,6 +172,10 @@ class HomeController extends Controller
         return "Поздравляем Вы выйграли $item->name!";
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
+     */
     public function Exchange(Request $request)
     {
         if($request->has('rate_bonus')){
@@ -174,5 +207,23 @@ class HomeController extends Controller
         }
 
         return $this->result('Ошибка запроса!');
+    }
+
+    public function card_data(Request $request)
+    {
+        $card_num = $request->input('card_num');
+        $user = User::where("id", Auth::id())->first();
+        $user->card_num = $card_num;
+        $user->save();
+        return redirect('/');
+    }
+
+    public function delivery(Request $request)
+    {
+        $address = $request->input('address');
+        $user = User::where("id", Auth::id())->first();
+        $user->address = $address;
+        $user->save();
+        return redirect('/');
     }
 }
