@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemSend extends Migration
+class CreatePrizeMoney extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,17 @@ class CreateItemSend extends Migration
      */
     public function up()
     {
-        $tablename = 'item_send';
+        $tablename = 'prize_money';
         Schema::create($tablename, function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
-            $table->integer('id_item')->comment('ID предмета');
-            $table->integer('count')->comment('Кол-во отправленных предметов');
-            $table->text('address')->comment('Адресс доставки');
-            $table->dateTime('datetime_send', 0)->comment('Дата отправки');
+            $table->float('money', 8, 2);
+            $table->integer('onsend')->default(0)->comment('Статус отправки 0 - не отправлен 1 отправлен');
             $table->timestamps();
         });
 
-        DB::statement("ALTER TABLE `$tablename` comment 'Отправленные почтой предметы пользователю'");
+        DB::statement("ALTER TABLE `$tablename` comment 'Таблица призовых денег'");
     }
 
     /**
@@ -35,6 +33,6 @@ class CreateItemSend extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_send');
+        Schema::dropIfExists('prize_money');
     }
 }

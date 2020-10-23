@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Model\items;
 use App\Model\limits;
+use App\Model\prize_bonus;
+use App\Model\prize_items;
+use App\Model\prize_money;
 use App\Model\prizes;
 use App\User;
 use Illuminate\Http\Request;
@@ -26,28 +29,24 @@ class HomeController extends Controller
     {
         $user = User::where("id", Auth::id())->first();
 
-
-        $all = [
-            "bonus" => $user->prizes->sum('bonus'),
-            "money" => $user->prizes->sum('money'),
-            "money_send" => $user->prizes->where('onsend', 1)->sum('money'),
-            "item" => $user->prizes->where('id_item', '>', 0)->count(),
-            "item_send" => $user->prizes->where('onsend', 1)->sum('id_item'),
-            "prizes" => [],
-        ];
-
-        $user_prizes = $user->prizes->where('id_item', '>', 0);
-        if($user_prizes->count() > 0) {
-            $ids = [];
-            foreach($user_prizes as $up){
-                array_push($ids, $up->id_item);
-            }
-
-            $user_items = items::whereIn('id', $ids)->get();
-            $all['user_items'] = $user_items;
+        $user_items = [];
+        foreach($user->prizeItems as $pi){
+            //$ui = new stdClass();
+            $ui = $pi->item;
+            $ui->prize_id = $pi->id;
+            $user_items[] = $ui;
         }
 
-        $cnt = prizes::where(DB::raw('DATE(datetime_set)'), date("Y-m-d"))->where('id_user', $user->id)->count();
+        $all = [
+            "bonus" => $user->prizeBonuses->sum('bonus'),
+            "money" => $user->prizeMoneys->sum('money'),
+            "money_send" => $user->prizeMoneys->where('onsend', 1)->sum('money'),
+            "item" => $user->prizeItems->count(),
+            "item_send" => $user->prizeItems->where('onsend', 1)->count(),
+            "user_items" => $user_items,
+        ];
+
+        $cnt = $user->prizes->where(DB::raw('DATE(datetime_set)'), 'DATE(NOW())')->count();
 
         $all['attempt'] = ($cnt > 0) ? 0 : 1;
 
@@ -85,10 +84,15 @@ class HomeController extends Controller
     {
         $c = limits::first();
         $bonus = rand(1, $c->bonus);
-        $prize = new prizes();
-        $prize->id_user = Auth::id();
-        $prize->bonus = $bonus;
-        $prize->save();
+
+        $p = new prize_bonus();
+        $p->id_user = Auth::id();
+        $p->bonus = $bonus;
+        $p->save();
+
+        $prizes = new prizes();
+        $prizes->id_user = Auth::id();
+        $prizes->save();
 
         return "Поздравляем Вы выйграли $bonus бонусов!";
     }
@@ -97,10 +101,15 @@ class HomeController extends Controller
     {
         $c = limits::first();
         $money = rand(1, $c->money);
-        $prize = new prizes();
-        $prize->id_user = Auth::id();
-        $prize->money = $money;
-        $prize->save();
+
+        $p = new prize_money();
+        $p->id_user = Auth::id();
+        $p->money = $money;
+        $p->save();
+
+        $prizes = new prizes();
+        $prizes->id_user = Auth::id();
+        $prizes->save();
 
         return "Поздравляем Вы выйграли $money рублей!";
     }
@@ -122,10 +131,48 @@ class HomeController extends Controller
         //Если имеются записи тогда выбираем 1 запись из таблицы
         $item = items::where('count', '>', 0)->inRandomOrder()->first();
 
-        $prize = new prizes();
-        $prize->id_user = Auth::id();
-        $prize->id_item = $item->id;
-        $prize->save();
+        $p = new prize_items();
+        $p->id_user = Auth::id();
+        $p->id_item = $item->id;
+        $p->save();
+
+        $prizes = new prizes();
+        $prizes->id_user = Auth::id();
+        $prizes->save();
+
         return "Поздравляем Вы выйграли $item->name!";
+    }
+
+    public function Exchange(Request $request)
+    {
+        if($request->has('rate_bonus')){
+            $id = $request->input('rate_bonus');
+            $prize_items = prize_items::find($id);
+            $bonus = $prize_items->item->bonus_rate;
+
+            $p = new prize_bonus();
+            $p->id_user = Auth::id();
+            $p->bonus = $bonus;
+            $p->save();
+
+            $prize_items->delete();
+            return $this->result('Отлично! Вы обменяли '.$prize_items->item->name.' на бонусы!');
+        }
+
+        if($request->has('rate_money')){
+            $id = $request->input('rate_money');
+            $prize_items = prize_items::find($id);
+            $money = $prize_items->item->money_rate;
+
+            $p = new prize_money();
+            $p->id_user = Auth::id();
+            $p->money = $money;
+            $p->save();
+
+            $prize_items->delete();
+            return $this->result('Отлично! Вы обменяли '.$prize_items->item->name.' на деньги!');
+        }
+
+        return $this->result('Ошибка запроса!');
     }
 }

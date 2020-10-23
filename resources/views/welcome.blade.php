@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 @guest
                     <h1>Для началы игры авторизуйтесь или зарегистрируйтесь</h1>
                 @else
@@ -21,7 +21,7 @@
                     </div>
                 @endguest
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">Призовая статистика</div>
                     <div class="card-body">
@@ -43,14 +43,28 @@
                             </li>
                         </ul>
                         <hr>
+                        <label>
+                            Вы можете обменять призы на
+                        </label><br>
+                        <center>
+                            <span class="badge badge-primary">Бонусы</span>
+                            <span class="badge badge-success">Деньги</span>
+                        </center>
 
+                        <hr>
                         <ul class="list-group">
-                            @foreach($result['user_items'] as $ui)
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                {{ $ui->name }} <span class="badge badge-primary badge-pill">{{ $ui->onsend }}</span>
-                            </li>
-                            @endforeach
+                            @if(isset($result['user_items']))
+                                @foreach($result['user_items'] as $ui)
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    {{ $ui->name }}
+                                    <span class="badge badge-primary badge-pill rate_bonus" id="{{ $ui->prize_id }}">{{ $ui->bonus_rate }}</span>
+                                    <span class="badge badge-success badge-pill rate_money" id="{{ $ui->prize_id }}">{{ $ui->money_rate }}</span>
+                                </li>
+                                @endforeach
+                            @endif
                         </ul>
+                        <hr>
+                        <label class="text-muted">Кликните на нужный цвет и Ваш призовой предмет автоматически переведет в выбранный формат</label>
                     </div>
                 </div>
             </div>
@@ -63,10 +77,37 @@
 @else
     @section('js')
         <script>
+            $.ajaxSetup({
+                global: true,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
             $('#start').click(function(){
                 $.get("{{ asset('startgame') }}", function(data){
                     $('#card-body').html(data.result);
                 })
+            });
+            $('.rate_bonus').click(function (){
+                if(confirm('Подтвердите обмен предмета на бонусы')) {
+                    var id = $(this).attr('id');
+                    $.post("{{ asset('/exchange') }}", {"rate_bonus": id}, function (data) {
+                        alert(data.result);
+                        window.location.reload();
+                    });
+                }
+            });
+
+            $('.rate_money').click(function (){
+                if(confirm('Подтвердите обмен предмета на деньги')) {
+                    var id = $(this).attr('id');
+                    $.post("{{ asset('/exchange') }}", {"rate_money": id}, function (data) {
+                        console.log(data);
+                        alert(data.result);
+                        window.location.reload();
+                    });
+                }
             });
         </script>
     @endsection

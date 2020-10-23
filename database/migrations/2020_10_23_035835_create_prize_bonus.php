@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrizes extends Migration
+class CreatePrizeBonus extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreatePrizes extends Migration
      */
     public function up()
     {
-        $tablename = 'prizes';
+        $tablename = 'prize_bonus';
         Schema::create($tablename, function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
-            $table->timestampTz('datetime_set')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Дата получения приза');
+            $table->integer('bonus');
             $table->timestamps();
         });
 
-        DB::statement("ALTER TABLE `$tablename` comment 'Полученные призы пользователя'");
+        DB::statement("ALTER TABLE `$tablename` comment 'Таблица призовых бонусов'");
     }
 
     /**
@@ -32,6 +32,6 @@ class CreatePrizes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prizes');
+        Schema::dropIfExists('prize_bonus');
     }
 }

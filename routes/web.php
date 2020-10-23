@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/startgame', 'HomeController@StartGame');
+Route::post('/exchange', 'HomeController@Exchange');

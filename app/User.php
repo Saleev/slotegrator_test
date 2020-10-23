@@ -37,12 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function itemSends()
     {
-        return $this->hasMany('App\Model\itemSend', 'id_user');
+        return $this->hasMany('App\Model\item_send', 'id_user');
     }
 
     /**
@@ -50,7 +51,31 @@ class User extends Authenticatable
      */
     public function moneySends()
     {
-        return $this->hasMany('App\Model\moneysend', 'id_user');
+        return $this->hasMany('App\Model\money_send', 'id_user');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function prizeBonuses()
+    {
+        return $this->hasMany('App\Model\prize_bonus', 'id_user');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function prizeItems()
+    {
+        return $this->hasMany('App\Model\prize_items', 'id_user');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function prizeMoneys()
+    {
+        return $this->hasMany('App\Model\prize_money', 'id_user');
     }
 
     /**
